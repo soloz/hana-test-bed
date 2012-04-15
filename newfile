@@ -1,0 +1,24 @@
+//This is a new file I have created..
+//
+
+
+class newfile {
+
+	function __construct(){
+	echo "new new file created";
+
+}
+
+	function goAhead() {
+	//go ahead
+
+
+}
+
+}
+
+
+
+
+
+
