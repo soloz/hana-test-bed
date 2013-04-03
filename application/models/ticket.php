@@ -40,7 +40,7 @@ class Ticket extends CI_Model {
     public function getTicketImage($eventID) {
 
         $whereArray = array('EVENT_ID' => $eventID);
-        $query = $this->db->get_where('TICKETS', $whereArray);
+        $query = $this->db->get_where('tickets', $whereArray);
         
         $id = $query->row_array();
         return $id['TICKET_IMAGE_SMALLER'];
@@ -49,7 +49,7 @@ class Ticket extends CI_Model {
      public function getTicketName($ticketID) {
 
         $whereArray = array('TICKET_ID' => $ticketID);
-        $query = $this->db->get_where('TICKETS', $whereArray);
+        $query = $this->db->get_where('tickets', $whereArray);
         
         $id = $query->row_array();
         return $id['TICKET_NAME'];
@@ -58,7 +58,7 @@ class Ticket extends CI_Model {
     public function getTicketCategory($ticketPriceID) {
 
         $whereArray = array('TICKET_PRICE_ID' => $ticketPriceID);
-        $query = $this->db->get_where('TICKET_PRICE', $whereArray);
+        $query = $this->db->get_where('ticket_price', $whereArray);
         $id = $query->row_array();
         return $id['TICKET_PRICE_CATEGORY'];
     }
@@ -68,7 +68,7 @@ class Ticket extends CI_Model {
     public function ticketExist($ticketID){
         
         $this->db->where('TICKET_ID', $ticketID);
-        $query = $this->db->get('TICKETS');
+        $query = $this->db->get('tickets');
 
         if ($query->num_rows == 1) {
             return $query->row_array();

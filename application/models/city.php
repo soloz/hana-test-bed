@@ -22,7 +22,7 @@ class City extends CI_Model {
     public function validCityID($cityID) {
         //returns true is $cityID exists in the database
         $whereArray = array('CITY_ID' => $cityID);
-        $query = $this->db->get_where('CITY', $whereArray);
+        $query = $this->db->get_where('city', $whereArray);
 
         if ($query->num_rows() > 0) {
             $status = true;

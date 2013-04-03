@@ -35,11 +35,39 @@ class User extends CI_Model {
         }
     }
 
-    public function getUser($email) {
+    public function updateUser($userid, $edit_data = array()) {
+        if ($this->input->post('pref') != false) {
 
-        $this->db->where('email', $email);
+            if (is_array($edit_data['pref'])) {
+                $pref = implode(',', $edit_data['pref']);
+            } else {
+                $pref = $edit_data['pref'];
+            }
+        } else {
+            $pref = "NULL";
+        }
+        $data = array(
+            'firstname' => $edit_data['firstname'],
+            'lastname' => $edit_data['lastname'],
+            'username' => $edit_data['username'],
+            'gender' => $edit_data['gender'],
+            'city' => $edit_data['city'],
+            'phone' => $edit_data['phone'],
+            'preference' => $pref
+        );
+        $this->db->where('USER_ID', $userid);
+        $status = $this->db->update('USERS', $data);
+
+        //var_dump($data);
+        if ($status) {
+            return true;
+        }
+    }
+
+    public function getUser($userID) {
+
+        $this->db->where('user_id', $userID);
         $query = $this->db->get('USERS');
-
         return $query->row_array();
     }
 
@@ -53,30 +81,6 @@ class User extends CI_Model {
         } else {
             return false;
         }
-    }
-
-    /*
-     * 
-     * 
-
-      public function usernameExist($username) {
-
-      $this->db->where('username', $username);
-      $query = $this->db->get('USERS');
-
-      if ($query->num_rows > 0) {
-      return true;
-      } else {
-      return false;
-      }
-      }
-     * 
-     * 
-     * 
-     */
-
-    public function getUserID($userID) {
-        
     }
 
     private function generateUserID() {

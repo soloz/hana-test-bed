@@ -1,4 +1,7 @@
-
+<div class="row">
+<div class="nine columns">
+	
+	
 <?php
    echo "<h1>Ticket Cart</h1>";
    echo "<hr>";
@@ -10,7 +13,7 @@
    
   ?>
 
-
+	
 <table border="0" width="980" cellpadding="8" cellspacing="0">
 <tr>
     <td width="182">Event Name</td>
@@ -94,6 +97,9 @@
   </tr>
 </table>
 <?php echo form_close(); ?>
+
+</div>
+</div>
 <?php
 } 
 ?>

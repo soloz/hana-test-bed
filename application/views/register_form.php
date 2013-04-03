@@ -39,8 +39,8 @@
         <?php echo form_input($email_input_attr);?> 
 
         <?php echo form_input($username_input_attr);?> 
-        <?php echo form_input($passwd_input_attr); ?>
-        <?php echo form_input($passwd2_input_attr); ?>
+        <?php echo form_password($passwd_input_attr); ?>
+        <?php echo form_password($passwd2_input_attr); ?>
 	<?php echo form_submit($create_button_attr); ?>
 
 </div>

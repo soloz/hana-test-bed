@@ -20,7 +20,7 @@ class Location extends CI_Model{
       public function getBuildingName($locationInstanceID) {
         
         $whereArray = array('LOCATION_INSTANCE_ID' => $locationInstanceID);
-        $query = $this->db->get_where('LOCATION_INSTANCE', $whereArray);
+        $query = $this->db->get_where('location_instance', $whereArray);
         $id = $query->row_array();
         return $id['BUILDING_NAME_ONE'];
     }
@@ -28,7 +28,7 @@ class Location extends CI_Model{
     public function getAddressDetail($locationInstanceID) {
         
         $whereArray = array('LOCATION_INSTANCE_ID' => $locationInstanceID);
-        $query = $this->db->get_where('LOCATION_INSTANCE', $whereArray);
+        $query = $this->db->get_where('location_instance', $whereArray);
         return $query->row_array();
         
     }

@@ -9,7 +9,7 @@ class Main extends CI_Controller {
     }
 
     public function index() {
-       $this->home();     
+      $this->home();     
     }
 
     public function home() {
@@ -19,7 +19,7 @@ class Main extends CI_Controller {
         $data['city'] = $this->city->getCity();
         $data['cityName'] = $this->city->getCityName(0);
         $this->load->view('includes/templates.php', $data); //header, footer, data
-
+        
     }
 
     public function city($cityID) {
@@ -30,7 +30,7 @@ class Main extends CI_Controller {
             redirect('main/city/0');
         } else {
             $data['cityName'] = $this->city->getCityName($cityID);
-            $data['tickets'] = $this->Ticket->getTickets($cityID);
+            $data['tickets'] = $this->ticket->getTickets($cityID);
             $data['main_content'] = "displayTickets"; //body of page
             $this->load->view('includes/templates.php', $data);
             //load the view page that will display
@@ -44,16 +44,16 @@ class Main extends CI_Controller {
         if (!ctype_digit($eventID) || !Event::validEventID($eventID)) {
             redirect('main/');
         } else {
-            $data['eventDetails'] = $this->Event->getEvent($eventID);
-            $data['eventName'] = $this->Event->getEventName($eventID);
-            $data['eventInstances'] = $this->Event->getEventInstance($eventID);
+            $data['eventDetails'] = $this->event->getEvent($eventID);
+            $data['eventName'] = $this->event->getEventName($eventID);
+            $data['eventInstances'] = $this->event->getEventInstance($eventID);
             $data['main_content'] = "displayEvent"; //body of page
             $this->load->view('includes/templates.php', $data);
         }
     }
     
     public function eventVenue($locationInstanceID){
-        $data['address'] = $this->Location->getAddressDetail($locationInstanceID);
+        $data['address'] = $this->location->getAddressDetail($locationInstanceID);
         $this->load->view('displayAddress.php', $data);
     }
     
@@ -61,5 +61,5 @@ class Main extends CI_Controller {
     
 
 }
+?>
 
-// End

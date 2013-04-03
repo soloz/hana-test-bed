@@ -39,14 +39,16 @@
 */
 
 $route['default_controller'] = "main";
+
 $route['login'] = "/users/login";
 $route['logout'] = "/users/logout";
 $route['signup'] = "/users/signup";
 $route['validatelogin'] = "/users/validateLogin";
 $route['registeruser'] = "/users/registerUser";
+$route['profile'] = "/users/profile";
+$route['updateprofile'] = "/users/updateprofile";
 
 $route['cart'] = "/ticketcart/cart";
-$route['profile'] = "/users/profile";
 
 $route['404_override'] = '';
 

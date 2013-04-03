@@ -1,0 +1,6 @@
+if ($cityId == 0) {
+            $mSQL = "SELECT ticket_id FROM `event_instance`";
+        }else if (City::validCityID($cityId)) {
+            $mSQL = "SELECT ticket_id FROM `event_instance` WHERE 
+            city_ID = $cityId ";
+            } 
